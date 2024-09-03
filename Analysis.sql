@@ -16,7 +16,7 @@ ORDER BY 1,2;
 
 SELECT location, date, total_cases, total_deaths, (total_deaths/total_cases)*100 AS DeathPercentage 
 FROM covid_vaccinations.coviddeaths
-WHERE location like '%spain%'
+WHERE location like '%india%'
 ORDER BY 1,2; 
 
 -- Look at Total Cases vs Total Deaths 
@@ -24,7 +24,7 @@ ORDER BY 1,2;
 
 SELECT location, date, total_cases, Population, (total_cases/population)*100 AS PercentPopulationInfected
 FROM covid_vaccinations.coviddeaths
--- WHERE location LIKE '%spain%'
+-- WHERE location LIKE '%india%'
 ORDER BY 1,2; 
 
 -- Look at countries with highest infection rate compared to population 
@@ -55,7 +55,7 @@ ORDER BY TotalDeathCount desc;
 
 SELECT date, SUM(new_cases) AS total_cases, SUM(CAST(new_deaths AS SIGNED INT)), SUM(cast(new_deaths AS SIGNED INT))/SUM(new_cases)*100 AS DeathPercentage 
 FROM covid_vaccinations.coviddeaths
---  WHERE location like '%spain%'
+--  WHERE location like '%india%'
 WHERE continent is not NULL
 group by date 
 ORDER BY 1,2;
@@ -69,7 +69,7 @@ WHERE continent IS NOT NULL;
 
 SELECT SUM(new_cases) AS total_cases, SUM(CAST(new_deaths AS SIGNED INT)) AS total_deaths, SUM(cast(new_deaths AS SIGNED INT))/SUM(new_cases)*100 AS DeathPercentage 
 FROM covid_vaccinations.coviddeaths
---  WHERE location like '%spain%'
+--  WHERE location like '%india%'
 WHERE continent is not NULL
 -- group by date 
 ORDER BY 1,2;
